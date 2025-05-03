@@ -1,0 +1,3 @@
+/Users/tim/Developer/gauss-solver/cmake-build-debug/CMakeFiles/gauss_solver.dir
+/Users/tim/Developer/gauss-solver/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/tim/Developer/gauss-solver/cmake-build-debug/CMakeFiles/rebuild_cache.dir
