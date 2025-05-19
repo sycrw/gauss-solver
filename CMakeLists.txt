@@ -3,4 +3,7 @@ project(gauss_solver)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(gauss_solver main.cpp)
+add_executable(gauss_solver src/main.cpp src/userInput.cpp
+        src/gauss.cpp
+        include/gauss.h
+)
