@@ -1,8 +1,0 @@
-# ninja log v6
-819	939	1747254068082349144	gauss_solver	d98f927eb6ab7f16
-3	877	1747165080321234560	CMakeFiles/gauss_solver.dir/src/userInput.cpp.o	71f82a7751d8e4e4
-10	818	1747254067273430300	CMakeFiles/gauss_solver.dir/src/gauss.cpp.o	78fa1c3e063cbf7f
-9	816	1747254067272684938	CMakeFiles/gauss_solver.dir/src/main.cpp.o	64ac7b3ce87d1d0a
-3	71	1747291002717532302	build.ninja	8de66e83834af45b
-10	886	1747513850227573132	CMakeFiles/gauss_solver.dir/src/gauss.cpp.o	78fa1c3e063cbf7f
-886	1031	1747513851103343382	gauss_solver	d98f927eb6ab7f16

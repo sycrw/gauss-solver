@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include "../include/gauss.hpp"
 
 namespace {
     int calculate_r(std::vector<std::vector<double> > &matrix) {
@@ -215,10 +216,47 @@ int get_soultion_amount(std::vector<std::vector<double> > &matrix, int variable_
     return 1;
 }
 
-void get_single_result_vector(const std::vector<std::vector<double> > &matrix, int variable_amount) {
+void get_single_result(const std::vector<std::vector<double> > &matrix, int variable_amount) {
     //from the bottom most pivot element we can get the value of the first variable
     for (int i = 1; i <= variable_amount; ++i) {
         std::cout << "x" << i << ": " << matrix[i-1][matrix[i-1].size() - 1] << " ";
     }
     std::cout << std::endl;
+}
+
+void get_inf_results(const std::vector<std::vector<double>>& matrix){
+    //for each variable that is not a pivot element, we can set it to any value
+    //now we need to express the pivot elements in terms of the free variables
+
+    std::vector<int> pivot_col_vector;
+    for (auto & i : matrix) {
+        //get pivot element
+        int pivot_col = -1;
+        for (int j = 0; j < i.size(); ++j) {
+            if (i[j] != 0) {
+                pivot_col = j;
+                break;
+            }
+        }
+        pivot_col_vector.push_back(pivot_col);
+        if (pivot_col == -1) {
+            throw std::runtime_error("No pivot element found, even though every row should have one");
+        }
+        std::string result = " ";
+        result += std::to_string(i[i.size() - 1]);
+        for (int j = pivot_col + 1; j < i.size()-1; ++j) {
+            if (j != pivot_col && i[j] != 0) {
+                result += " - " + std::to_string(i[j] ) + "*x" + std::to_string(j+1);
+            }
+        }
+        std::cout << "x" << pivot_col+1 << " =" << result << std::endl;
+
+    }
+    // for all variables not in pivot_col_vector print that they are free and an element of R
+    for (int i = 0; i < matrix[0].size()-1; ++i) {
+        if (std::find(pivot_col_vector.begin(), pivot_col_vector.end(), i) == pivot_col_vector.end()) {
+            std::cout << "x" << i+1 << " is free and an element of R" << std::endl;
+        }
+    }
+
 }
